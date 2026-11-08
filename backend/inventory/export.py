@@ -1,4 +1,4 @@
-"""Geração de planilhas Excel (.xlsx) com a identidade do Sr. Grão."""
+"""Geração de planilhas Excel (.xlsx) com a identidade do Café Aurora."""
 
 from io import BytesIO
 

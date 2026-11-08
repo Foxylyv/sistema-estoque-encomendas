@@ -9,7 +9,7 @@ import {
 } from "../orders";
 
 const POLL_MS = 15000;
-const SOUND_KEY = "srgrao.som";
+const SOUND_KEY = "aurora.som";
 const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 const readSound = () => {
   try {
@@ -77,7 +77,7 @@ export default function Quadro() {
 
   // Contador de novas no título da aba (ajuda quando a tela está em outra janela).
   useEffect(() => {
-    const base = "Sr. Grão";
+    const base = "Café Aurora";
     document.title = newIds.size ? `(${newIds.size}) Novas encomendas · ${base}` : `Encomendas · ${base}`;
     return () => { document.title = base; };
   }, [newIds]);
@@ -251,7 +251,7 @@ export default function Quadro() {
       <div className="toolbar">
         <SearchBox value={search} onChange={setSearch} placeholder="Buscar cliente, telefone ou nº…" />
         {stores.length > 1 && (
-          <Chips options={stores.map((s) => ({ value: s.id, label: s.name.replace(/^Sr\.? Grão\s*/i, "") || s.name }))}
+          <Chips options={stores.map((s) => ({ value: s.id, label: s.name.replace(/^Café Aurora\s*/i, "") || s.name }))}
                  value={store} onChange={setStore} allLabel="Todas as lojas" />
         )}
       </div>

@@ -2,7 +2,7 @@ import { demoApi } from "./demo/demoApi";
 
 const DEMO = !!import.meta.env.VITE_DEMO;
 const BASE = import.meta.env.VITE_API_URL || "/api";
-const KEY = "srgrao.auth";
+const KEY = "aurora.auth";
 
 export const tokens = {
   get() {

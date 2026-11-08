@@ -6,7 +6,7 @@ import {
 const AuthCtx = createContext(null);
 export const useAuth = () => useContext(AuthCtx);
 
-const EST_KEY = "srgrao.unidade";
+const EST_KEY = "aurora.unidade";
 const readEst = () => {
   try {
     return Number(localStorage.getItem(EST_KEY)) || null;

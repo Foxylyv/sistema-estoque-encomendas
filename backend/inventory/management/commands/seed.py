@@ -71,7 +71,7 @@ CONSUMPTION = [
 
 
 class Command(BaseCommand):
-    help = "Cria unidades, usuários, ingredientes, produtos e encomendas de exemplo (Sr. Grão)."
+    help = "Cria unidades, usuários, ingredientes, produtos e encomendas de exemplo (Café Aurora)."
 
     def add_arguments(self, parser):
         parser.add_argument("--sem-movimentos", action="store_true",
@@ -86,10 +86,10 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **opts):
-        centro, _ = Establishment.objects.get_or_create(name="Sr. Grão Centro")
-        jardins, _ = Establishment.objects.get_or_create(name="Sr. Grão Jardins")
+        centro, _ = Establishment.objects.get_or_create(name="Café Aurora Centro")
+        jardins, _ = Establishment.objects.get_or_create(name="Café Aurora Jardins")
         fabrica, _ = Establishment.objects.get_or_create(
-            name="Sr. Grão Fábrica", defaults={"kind": Establishment.Kind.FABRICA})
+            name="Café Aurora Fábrica", defaults={"kind": Establishment.Kind.FABRICA})
 
         admin = self._user("admin", "admin123", first_name="Administração", is_master=True,
                            is_staff=True, is_superuser=True)
@@ -141,7 +141,7 @@ class Command(BaseCommand):
                                        quantity=Decimal(qty) * factor, unit=unit)
 
         self.stdout.write(self.style.SUCCESS(
-            "Dados de exemplo criados (unidades: Sr. Grão Centro, Sr. Grão Jardins e Sr. Grão Fábrica).\n"
+            "Dados de exemplo criados (unidades: Café Aurora Centro, Café Aurora Jardins e Café Aurora Fábrica).\n"
             "  Admin master:            admin / admin123\n"
             "  Cozinha (Centro):        cozinha / cozinha123\n"
             "  Compras (Centro):        compras / compras123\n"

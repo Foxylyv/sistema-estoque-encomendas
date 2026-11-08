@@ -31,7 +31,7 @@ export class DemoError extends Error {
 const READ_ONLY = "Esta é uma demonstração: as alterações não são salvas. Rode o projeto localmente para testar tudo.";
 
 let currentUser = null;
-try { currentUser = JSON.parse(localStorage.getItem("srgrao.auth"))?.demoUser || null; } catch { /* sem armazenamento */ }
+try { currentUser = JSON.parse(localStorage.getItem("aurora.auth"))?.demoUser || null; } catch { /* sem armazenamento */ }
 
 const page = (list, params) => {
   const size = Number(params.get("page_size")) || 50;

@@ -32,7 +32,7 @@ export default function Login() {
       </div>
       <div className="login-panel">
         <form className="login-card" onSubmit={submit}>
-          <img className="login-logo" src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Sr. Grão Cafeteria & Doceria" />
+          <img className="login-logo" src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Café Aurora Cafeteria & Doceria" />
           <h1>Controle de estoque</h1>
           <p className="muted">Entre com seu usuário para continuar.</p>
           {DEMO && (

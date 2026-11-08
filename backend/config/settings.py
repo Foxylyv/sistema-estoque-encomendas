@@ -1,4 +1,4 @@
-"""Configurações do projeto Sr. Grão — Controle de Estoque."""
+"""Configurações do projeto Café Aurora — Controle de Estoque."""
 
 import os
 from datetime import timedelta

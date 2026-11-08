@@ -1,4 +1,4 @@
-# Sr. Grão — Controle de Estoque e Encomendas
+# Café Aurora — Controle de Estoque e Encomendas
 
 ### ▶ [Abrir a demonstração ao vivo](https://foxylyv.github.io/sistema-estoque-encomendas/)
 
@@ -19,7 +19,7 @@ desenvolvido como projeto freelance e entregue em produção.
 > são **fictícios**, criados pelo comando `seed`. Nenhum dado real do cliente está aqui.
 
 - **backend/** — Django 5.1 + Django REST Framework + JWT + openpyxl (Excel)
-- **frontend/** — React 18 + Vite, responsivo (desktop, tablet e celular), com a identidade visual do Sr. Grão
+- **frontend/** — React 18 + Vite, responsivo (desktop, tablet e celular), com a identidade visual do Café Aurora
 
 ## Tecnologias e destaques
 
@@ -43,8 +43,8 @@ python3 -m venv .venv
 .venv/bin/python manage.py runserver     # http://127.0.0.1:8000
 ```
 
-O `seed` cria três unidades de exemplo (as lojas **Sr. Grão Centro** e **Sr. Grão Jardins** e a
-**Sr. Grão Fábrica**), produtos e algumas encomendas, e estes usuários:
+O `seed` cria três unidades de exemplo (as lojas **Café Aurora Centro** e **Café Aurora Jardins** e a
+**Café Aurora Fábrica**), produtos e algumas encomendas, e estes usuários:
 
 | Perfil               | Unidade | Usuário    | Senha        |
 |----------------------|---------|------------|--------------|

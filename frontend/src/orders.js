@@ -83,7 +83,7 @@ const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const nl = (s) => esc(s).replace(/\n/g, "<br>");
 
-const PRINT_KEY = "srgrao.impressao";
+const PRINT_KEY = "aurora.impressao";
 export const printFormat = {
   get() {
     try {
@@ -152,7 +152,7 @@ function comandaHtml(o, { via } = {}) {
   <section class="comanda">
     ${via ? `<div class="via">${esc(via)}</div>` : ""}
     <div class="c-head">
-      <div class="brand">Sr. Grão · Encomenda</div>
+      <div class="brand">Café Aurora · Encomenda</div>
       <div class="c-num">#${o.id}</div>
     </div>
     <div class="c-due">ENTREGA: ${esc(fmtDuePrint(o.due_at).toUpperCase())}</div>

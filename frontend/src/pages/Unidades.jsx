@@ -76,7 +76,7 @@ function UnitForm({ unit, onClose, onSaved }) {
         <button className="btn btn-primary grow" form="unit-form" disabled={busy}>{busy ? "Salvando…" : "Salvar"}</button>
       </>}>
       <form id="unit-form" className="form" onSubmit={submit}>
-        <Field label="Nome *"><input className="input" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Ex.: Sr. Grão Centro" /></Field>
+        <Field label="Nome *"><input className="input" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Ex.: Café Aurora Centro" /></Field>
         <div className="field">
           <span className="field-label">Tipo</span>
           <div className="segmented" role="radiogroup" aria-label="Tipo de unidade">
