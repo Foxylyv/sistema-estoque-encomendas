@@ -83,7 +83,7 @@ export default function Layout() {
     <div className="shell">
       <aside className="sidebar">
         <div className="brand">
-          <img src="/logo.jpg" alt="Sr. Grão Cafeteria & Doceria" />
+          <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Sr. Grão Cafeteria & Doceria" />
           <div className="brand-text">
             <strong>Sr. Grão</strong>
             <span>Estoque e encomendas</span>
@@ -111,7 +111,7 @@ export default function Layout() {
       </aside>
 
       <header className="topbar">
-        <img src="/logo.jpg" alt="" />
+        <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="" />
         <div className="topbar-text">
           <strong>Sr. Grão</strong>
           <EstablishmentPicker compact />

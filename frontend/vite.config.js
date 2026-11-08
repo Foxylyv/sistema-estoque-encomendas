@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 // Em desenvolvimento, /api é redirecionado para o Django (porta 8000).
 // host: true expõe na rede local para testar no tablet/celular.
 export default defineConfig({
+  base: process.env.VITE_DEMO ? "./" : "/",
   plugins: [react()],
   server: {
     host: true,

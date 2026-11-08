@@ -1,3 +1,6 @@
+import { demoApi } from "./demo/demoApi";
+
+const DEMO = !!import.meta.env.VITE_DEMO;
 const BASE = import.meta.env.VITE_API_URL || "/api";
 const KEY = "srgrao.auth";
 
@@ -93,6 +96,14 @@ function authHeaders(extra = {}) {
 }
 
 export async function api(path, { method = "GET", body, params, retry = true } = {}) {
+  if (DEMO) {
+    try {
+      return await demoApi(path, { method, body, params, establishmentId });
+    } catch (e) {
+      if (e.status === 401 && path !== "/auth/token/") { tokens.set(null); onUnauthorized(); }
+      throw new ApiError(e.status, e.data);
+    }
+  }
   const url = buildUrl(path, params);
   const headers = authHeaders({ Accept: "application/json" });
   if (body !== undefined) headers["Content-Type"] = "application/json";
@@ -116,6 +127,7 @@ export async function api(path, { method = "GET", body, params, retry = true } =
 
 /** Baixa um arquivo autenticado (ex.: planilha Excel) e dispara o download. */
 export async function download(path, { params, fallbackName = "arquivo.xlsx", retry = true } = {}) {
+  if (DEMO) throw new ApiError(400, { detail: "A exportação para Excel funciona rodando o projeto com o backend (veja o README)." });
   let res;
   try {
     res = await fetch(buildUrl(path, params), { headers: authHeaders() });

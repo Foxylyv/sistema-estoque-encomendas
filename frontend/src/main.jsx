@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Navigate, Route, Routes } from "react-router-dom";
+
+const Router = import.meta.env.VITE_DEMO ? HashRouter : BrowserRouter;
 import { AuthProvider, useAuth } from "./auth";
 import Layout, { navItems } from "./components/Layout";
 import { Spinner, ToastProvider } from "./components/ui";
@@ -48,12 +50,13 @@ function AppRoutes() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <ToastProvider>
         <AuthProvider>
           <AppRoutes />
         </AuthProvider>
       </ToastProvider>
-    </BrowserRouter>
+      {import.meta.env.VITE_DEMO && <div className="demo-badge">Demonstração · dados fictícios</div>}
+    </Router>
   </React.StrictMode>
 );

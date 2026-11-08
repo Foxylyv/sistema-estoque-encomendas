@@ -4,7 +4,8 @@ import Icon from "../components/Icon";
 
 export default function Login() {
   const { login } = useAuth();
-  const [form, setForm] = useState({ username: "", password: "" });
+  const DEMO = !!import.meta.env.VITE_DEMO;
+  const [form, setForm] = useState(DEMO ? { username: "admin", password: "admin123" } : { username: "", password: "" });
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -23,7 +24,7 @@ export default function Login() {
 
   return (
     <div className="login">
-      <div className="login-hero" style={{ backgroundImage: "url(/capa.jpg)" }}>
+      <div className="login-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}capa.jpg)` }}>
         <div className="login-hero-text">
           <p className="eyebrow">Cafeteria &amp; Doceria</p>
           <h2>Qualidade começa no que está na despensa.</h2>
@@ -31,9 +32,17 @@ export default function Login() {
       </div>
       <div className="login-panel">
         <form className="login-card" onSubmit={submit}>
-          <img className="login-logo" src="/logo.jpg" alt="Sr. Grão Cafeteria & Doceria" />
+          <img className="login-logo" src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Sr. Grão Cafeteria & Doceria" />
           <h1>Controle de estoque</h1>
           <p className="muted">Entre com seu usuário para continuar.</p>
+          {DEMO && (
+            <div className="alert demo-hint">
+              <span><b>Demonstração</b> com dados fictícios, somente leitura. Já está preenchido como
+                admin (vê tudo). Outros perfis: <code>gerente</code>/<code>gerente123</code>,{" "}
+                <code>cozinha</code>/<code>cozinha123</code>, <code>loja</code>/<code>loja123</code>,{" "}
+                <code>fabrica</code>/<code>fabrica123</code>.</span>
+            </div>
+          )}
 
           {error && (
             <div className="alert alert-error">

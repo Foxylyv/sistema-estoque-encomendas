@@ -1,5 +1,17 @@
 # Sr. Grão — Controle de Estoque e Encomendas
 
+### ▶ [Abrir a demonstração ao vivo](https://foxylyv.github.io/sistema-estoque-encomendas/)
+
+Roda direto no navegador, sem instalar nada: o login já vem preenchido (`admin` / `admin123`).
+Também dá para entrar como `fabrica` / `fabrica123` para ver o quadro de produção, ou como
+`cozinha` / `cozinha123` para ver a tela da cozinha. A demonstração é **somente leitura**, com dados fictícios.
+
+| Painel da rede | Quadro de encomendas da fábrica |
+|---|---|
+| ![Painel](screenshots/painel.png) | ![Quadro](screenshots/quadro.png) |
+| **Estoque** | **Celular (tela da cozinha)** |
+| ![Estoque](screenshots/estoque.png) | <img src="screenshots/celular.png" width="260"> |
+
 Sistema web de controle de estoque e encomendas para uma rede de cafeterias (lojas + fábrica),
 desenvolvido como projeto freelance e entregue em produção.
 
@@ -8,6 +20,15 @@ desenvolvido como projeto freelance e entregue em produção.
 
 - **backend/** — Django 5.1 + Django REST Framework + JWT + openpyxl (Excel)
 - **frontend/** — React 18 + Vite, responsivo (desktop, tablet e celular), com a identidade visual do Sr. Grão
+
+## Tecnologias e destaques
+
+- API REST em **Django + Django REST Framework**, autenticação **JWT**, permissões por perfil (RBAC) e isolamento de dados por unidade
+- Front-end em **React + Vite**, responsivo para desktop, tablet e celular
+- Saldo nunca sobrescrito: toda operação gera movimentação auditável, com estorno e bloqueio de linha na transação
+- Quadro kanban de encomendas com atualização automática, aviso sonoro e impressão em cupom 80 mm / A4
+- Exportação para Excel (openpyxl) e testes automatizados no back-end
+- A demonstração online usa o mesmo front-end compilado em modo demo (`VITE_DEMO=1`), com um retrato dos dados do `seed` em `frontend/src/demo/`
 
 ## Como rodar (desenvolvimento)
 
